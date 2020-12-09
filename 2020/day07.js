@@ -19,6 +19,8 @@ let bags = process.argv[2]
       new Map()
    )
 
+console.log(bags)
+
 const foundBags = [[1, 'shiny gold bags']]
 let count = 0
 while (foundBags.length) {
