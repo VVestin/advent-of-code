@@ -1,19 +1,29 @@
 const fs = require('fs')
 
 fs.readFile(process.argv[2], 'utf8', (err, data) => {
-   data = data.trim().split('\n').map(v => parseInt(v))
-   let f = 0
-   let found = [true]
-   outer:
-   while (true) {
-   for (let d of data) {
-      f += d
-      console.log(f)
-      if (found[f]) {
-         console.log('DONE')
-         break outer
-      }
-      found[f] = true
-   }
-     }
+   data = data
+      .trim()
+      .split('\n')
+      .map(line =>
+         line
+            .match(/#(\d+) @ (\d+),(\d+): (\d+)x(\d+)/)
+            .slice(1, 6)
+            .map(Number)
+      )
+
+   const fabric = new Array(1000).fill().map(_ => new Array(1000).fill(0))
+   let count = 0
+   data.forEach(([id, x, y, w, h]) => {
+      for (let i = x; i < w + x; i++)
+         for (let j = y; j < h + y; j++) {
+            if (++fabric[i][j] == 2) count++
+         }
+   })
+   console.log(count)
+
+   data.forEach(([id, x, y, w, h]) => {
+      for (let i = x; i < w + x; i++)
+         for (let j = y; j < h + y; j++) if (fabric[i][j] != 1) return
+      console.log(id)
+   })
 })
