@@ -1,0 +1,24 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/VVestin/advent-of-code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VVestin/advent-of-code/issues"
+  },
+  "homepage": "https://github.com/VVestin/advent-of-code#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "node-fetch": "^3.1.0"
+  }
+}

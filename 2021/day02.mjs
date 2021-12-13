@@ -1,5 +1,5 @@
-const input = require('./base')(2)
-   .split('\n')
+import { getInput } from './base.mjs'
+const input = (await getInput(2)).split('\n')
 
 let hor = 0
 let depth = 0
@@ -11,10 +11,8 @@ input.forEach(i => {
       hor += amt
       depth += aim * amt
    }
-   if (dir == 'up')
-      aim -= amt
-   if (dir == 'down')
-      aim += amt
+   if (dir == 'up') aim -= amt
+   if (dir == 'down') aim += amt
 })
 
-console.log(hor, depth, hor * depth)
+console.log(hor * depth)

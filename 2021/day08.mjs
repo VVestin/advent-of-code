@@ -1,4 +1,5 @@
-let input = require('./base')(8).split('\n')
+import { getInput } from './base.mjs'
+const input = (await getInput(8)).split('\n')
 
 const ins = input.map(line => line.split('|')[0].trim().split(' '))
 const outs = input.map(line => line.split('|')[1].trim().split(' '))
@@ -22,7 +23,7 @@ const diff = (a, b) => {
    return set
 }
 
-count = 0
+let count = 0
 for (let i = 0; i < ins.length; i++) {
    const line = ins[i]
    const nums = new Array(10).fill(null)

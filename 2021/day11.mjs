@@ -1,4 +1,6 @@
-let octos = require('./base')(11).split('\n').join('').split('').map(Number)
+import { getInput } from './base.mjs'
+
+let octos = (await getInput(11)).split('\n').join('').split('').map(Number)
 
 function valid(x, i) {
    return x >= 0 && x < 100 && Math.abs((x % 10) - (i % 10)) <= 1
@@ -28,4 +30,4 @@ for (let round = 0; round < 10_000; round++) {
       break
    }
 }
-console.log(flashes)
+//console.log(flashes)

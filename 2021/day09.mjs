@@ -1,4 +1,5 @@
-let input = require('./base')(9)
+import { getInput } from './base.mjs'
+const input = (await getInput(9))
    .split('\n')
    .map(line => line.split('').map(Number))
 
@@ -7,7 +8,7 @@ function get([x, y]) {
    return input[y][x]
 }
 
-console.log(input)
+//console.log(input)
 let basins = []
 for (let y = 0; y < input.length; y++) {
    for (let x = 0; x < input[y].length; x++) {
@@ -23,7 +24,7 @@ for (let y = 0; y < input.length; y++) {
       }
    }
 }
-for (basin of basins) {
+for (let basin of basins) {
    const toVisit = [basin.pop()]
    while (toVisit.length) {
       const pos = toVisit.shift()
@@ -35,8 +36,8 @@ for (basin of basins) {
          [x, y - 1],
          [x, y + 1],
       ].filter(pos => get(pos) < 9)
-      console.log(pos, neighbors)
-      for (neighbor of neighbors) {
+      //console.log(pos, neighbors)
+      for (let neighbor of neighbors) {
          if (
             basin.every(p => String(p) != String(neighbor)) &&
             toVisit.every(p => String(p) != String(neighbor))
@@ -44,8 +45,8 @@ for (basin of basins) {
             toVisit.push(neighbor)
       }
    }
-   console.log('basin', basin)
+   //console.log('basin', basin)
 }
-console.log(basins)
+//console.log(basins)
 const basinLens = basins.map(b => b.length).sort((x, y) => x - y)
 console.log(basinLens.slice(-3).reduce((a, x) => a * x))

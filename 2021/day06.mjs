@@ -1,6 +1,7 @@
-let fish = require('./base')(6).split(',')
+import { getInput } from './base.mjs'
+const fish = (await getInput(6)).split(',')
 
-fishByDay = new Array(9).fill(0)
+const fishByDay = new Array(9).fill(0)
 for (let d of fish) fishByDay[d]++
 
 for (let i = 0; i < 256; i++) {

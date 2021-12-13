@@ -1,5 +1,5 @@
-const input = require('./base')(5)
-   .split('\n')
+import { getInput } from './base.mjs'
+const input = (await getInput(5)).split('\n')
 
 const size = 1000
 const map = new Array(size).fill(0).map(x => new Array(size).fill(0))
@@ -10,7 +10,8 @@ function getDir(diff) {
    return 0
 }
 
-input.map(line => line.split(' -> ').map(pair => pair.split(',').map(Number)))
+input
+   .map(line => line.split(' -> ').map(pair => pair.split(',').map(Number)))
    .forEach(([start, end]) => {
       const xDiff = start[0] - end[0]
       const yDiff = start[1] - end[1]
@@ -22,4 +23,9 @@ input.map(line => line.split(' -> ').map(pair => pair.split(',').map(Number)))
 
 //console.log(map.map(line => line.join('')).join('\n'))
 
-console.log(map.reduce((acc, row) => acc + row.reduce((acc, x) => acc + Number(x > 1), 0), 0))
+console.log(
+   map.reduce(
+      (acc, row) => acc + row.reduce((acc, x) => acc + Number(x > 1), 0),
+      0
+   )
+)
