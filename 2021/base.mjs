@@ -20,7 +20,7 @@ export function getInput(day) {
    return fetch(url, { headers: { cookie: 'session=' + mySession } })
       .then(resp => {
          if (!resp.ok) {
-            return resp.text().next(text => {
+            return resp.text().then(text => {
                console.log('error during fetch', text)
                throw new Error(resp.statusText)
             })
