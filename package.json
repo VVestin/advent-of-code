@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/VVestin/advent-of-code#readme",
   "dependencies": {
+    "@tyriar/fibonacci-heap": "^2.0.9",
     "dotenv": "^10.0.0",
     "node-fetch": "^3.1.0"
   }
