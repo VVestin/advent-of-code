@@ -5,13 +5,14 @@ dotenv.config()
 
 const mySession = process.env.AOC_SESSION
 
-export function getInput(day) {
+// oops, this maybe should have been async
+export function getInput(day, year = '2021') {
    console.log('day', day)
    if (process.argv[2]) return process.argv[2]
    const inFile = `in/${('00' + day).slice(-2)}.txt`
    if (fs.existsSync(inFile)) return String(fs.readFileSync(inFile)).trim()
 
-   const url = `https://adventofcode.com/2021/day/${day}/input`
+   const url = `https://adventofcode.com/${year}/day/${day}/input`
    console.log('downloading input from', url)
    if (!mySession) {
       console.error('Error: no session provided, cannot download your input')
