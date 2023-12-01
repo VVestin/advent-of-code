@@ -3,3 +3,14 @@
 node_modules/
 */in/
 .env
+.vscode/
+
+# scala things
+target
+.bloop/
+.metals/
+2023/project/.bloop
+2023/project/metals.sbt
+2023/project/project
+2023/project/target
+2023/.scalafmt.conf
